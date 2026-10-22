@@ -1,0 +1,19 @@
+[app]
+name = "aldogonzaga/ticket-emas-be"
+owner = "aldogonzaga"
+
+[dependencies]
+"wasmer/php" = "*"
+
+[fs]
+"/app" = "."
+
+[[commands]]
+name = "run"
+runner = "wasmer/php"
+
+[commands.annotations.wasi]
+env = [
+    "DOCUMENT_ROOT=/app/public",
+    "SCRIPT_FILENAME=/app/public/index.php"
+]
